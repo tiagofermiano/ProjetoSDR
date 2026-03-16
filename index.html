@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<!--famoso head contendo o nome do projeto la em cima da abinha do site-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJETO S.D.R - Sistema de Solução para Descarte de Resíduos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!--body é o corpo do site, onde fica todo o conteudo-->
+
+<body>
+
+    <!--headerzinho dos guri, é tipo uma barra que fica no topo do site com o nomezinho-->
+    <header>
+        <h1>PROJETO S.D.R</h1>
+    </header>
+
+    <!--nave do guri, mas esse não é o mustangão ainda, é só os botõezinhos em cima-->
+
+    <nav>
+
+        <!--aqui eu puxei as funções que fiz no script.js-->
+        <button onclick="showPage('home')">Início</button>
+        <button onclick="showPage('mapa')">Pontos</button>
+        <button onclick="showPage('denuncia')">Denunciar</button>
+        <button onclick="showPage('historico')">Meu Histórico</button>
+    </nav>
+
+    <!--nave do guri, mas esse não é o mustangão ainda, é só os botõezinhos em cima-->
+    <div class="container">
+
+        <!--aqui é a página inicial-->
+        <div id="home" class="page">
+            <h2>Bem-vindo, Cidadão!</h2>
+            <p>Ajude a manter nossa cidade limpa. Escolha um serviço no menu acima.</p>
+            <div class="card">
+                <strong>Dica do dia:</strong> Pilhas e baterias nunca devem ser descartadas no lixo comum.
+            </div>
+        </div>
+
+        <!--página do mapa-->
+        <div id="mapa" class="page hidden">
+            <h2>Pontos de Descarte</h2>
+            <div class="card">
+                <strong>Ecoponto Central</strong><br>Rua das Flores, 123<br>Aceita: Móveis e Eletrônicos
+            </div>
+            <div class="card">
+                <strong>Cooperativa Óleo Vivo</strong><br>Av. Principal, 500<br>Aceita: Óleo de cozinha usado
+            </div>
+        </div>
+
+        <!--página de denúncia-->
+        <div id="denuncia" class="page hidden">
+            <h2>Registrar Denúncia</h2>
+            <div class="card">
+                <label>Descrição do local/irregularidade:</label>
+                <textarea id="descDenuncia"></textarea>
+                <label>Foto (Simulação):</label>
+                <input type="file" id="fotoDenuncia">
+
+                <!--aqui eu puxei a função salvarDenuncia() que vai salvar a denúncia no localstorage-->
+                <button class="btn-main" onclick="salvarDenuncia()">Enviar Denúncia</button>
+            </div>
+        </div>
+
+        <!--página de histórico-->
+        <div id="historico" class="page hidden">
+            <h2>Minhas Solicitações</h2>
+            <div id="listaHistorico" class="card">
+                <p>Nenhuma solicitação encontrada.</p>
+            </div>
+            <!--aqui eu puxei a função limparHistorico() que vai limpar o histórico-->
+            <button onclick="limparHistorico()" class="btn-clear">Limpar tudo</button>
+        </div>
+    </div>
+
+    <!--aqui eu puxei o script.js que vai fazer o site funcionar-->
+    <script src="script.js"></script>
+</body>
+
+</html>
