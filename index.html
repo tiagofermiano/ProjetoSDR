@@ -16,26 +16,39 @@
 
     <!--headerzinho dos guri, é tipo uma barra que fica no topo do site com o nomezinho-->
     <header>
-        <h1>PROJETO S.D.R</h1>
+        <h1 id="tituloSite">PROJETO S.D.R</h1>
     </header>
 
     <!--nave do guri, mas esse não é o mustangão ainda, é só os botõezinhos em cima-->
 
-    <nav>
-
+    <nav id="menuNavegacao" class="hidden">
         <!--aqui eu puxei as funções que fiz no script.js-->
         <button onclick="showPage('home')">Início</button>
         <button onclick="showPage('mapa')">Pontos</button>
         <button onclick="showPage('denuncia')">Denunciar</button>
-        <button onclick="showPage('historico')">Meu Histórico</button>
+        <button onclick="showPage('coleta')">Agendar Coleta</button>
+        <button onclick="showPage('guia')">Guia</button>
+        <button onclick="showPage('historico')">Histórico</button>
+        <button onclick="logout()">Sair</button>
     </nav>
 
     <!--nave do guri, mas esse não é o mustangão ainda, é só os botõezinhos em cima-->
     <div class="container">
 
+        <!--página de login-->
+        <div id="login" class="page">
+            <h2>Acesso do Cidadão</h2>
+            <p>Faça seu cadastro para acessar as funcionalidades do S.D.R.</p>
+            <div class="card">
+                <label>Seu Nome ou E-mail:</label>
+                <input type="text" id="nomeLogin" placeholder="Ex: Joao Silva">
+                <button class="btn-main" onclick="fazerLogin()">Entrar / Cadastrar</button>
+            </div>
+        </div>
+
         <!--aqui é a página inicial-->
-        <div id="home" class="page">
-            <h2>Bem-vindo, Cidadão!</h2>
+        <div id="home" class="page hidden">
+            <h2 id="msgBemVindo">Bem-vindo, Cidadão!</h2>
             <p>Ajude a manter nossa cidade limpa. Escolha um serviço no menu acima.</p>
             <div class="card">
                 <strong>Dica do dia:</strong> Pilhas e baterias nunca devem ser descartadas no lixo comum.
@@ -46,10 +59,21 @@
         <div id="mapa" class="page hidden">
             <h2>Pontos de Descarte</h2>
             <div class="card">
+                <label>Filtrar por material:</label>
+                <select id="filtroMaterial" onchange="filtrarPontos()">
+                    <option value="todos">Todos</option>
+                    <option value="eletronicos">Eletrônicos e Móveis</option>
+                    <option value="oleo">Óleo de Cozinha</option>
+                </select>
+            </div>
+            <div class="card ponto-coleta" data-tipo="eletronicos">
                 <strong>Ecoponto Central</strong><br>Rua das Flores, 123<br>Aceita: Móveis e Eletrônicos
             </div>
-            <div class="card">
+            <div class="card ponto-coleta" data-tipo="oleo">
                 <strong>Cooperativa Óleo Vivo</strong><br>Av. Principal, 500<br>Aceita: Óleo de cozinha usado
+            </div>
+            <div class="card ponto-coleta" data-tipo="eletronicos">
+                <strong>Ecoponto Norte</strong><br>Av. Brasil, 1020<br>Aceita: Móveis e Eletrônicos
             </div>
         </div>
 
@@ -57,13 +81,48 @@
         <div id="denuncia" class="page hidden">
             <h2>Registrar Denúncia</h2>
             <div class="card">
-                <label>Descrição do local/irregularidade:</label>
-                <textarea id="descDenuncia"></textarea>
-                <label>Foto (Simulação):</label>
+                <label>Descrição (máximo 250 caracteres):</label>
+                <textarea id="descDenuncia" maxlength="250"></textarea>
+
+                <label>Localização Automática:</label>
+                <div class="flex-row">
+                    <input type="text" id="gpsDenuncia" readonly>
+                    <button class="btn-secundario" onclick="obterLocalizacao()">Pegar Local</button>
+                </div>
+
+                <label>Foto da denúncia (opcional):</label>
                 <input type="file" id="fotoDenuncia">
 
                 <!--aqui eu puxei a função salvarDenuncia() que vai salvar a denúncia no localstorage-->
                 <button class="btn-main" onclick="salvarDenuncia()">Enviar Denúncia</button>
+            </div>
+        </div>
+
+        <!--página de coleta de grandes objetos-->
+        <div id="coleta" class="page hidden">
+            <h2>Agendar Coleta</h2>
+            <p>Solicite a coleta de grandes objetos (móveis, eletrodomésticos grandes, etc).</p>
+            <div class="card">
+                <label>O que deseja descartar?</label>
+                <textarea id="descColeta"></textarea>
+
+                <label>Data de coleta (apenas datas futuras):</label>
+                <input type="date" id="dataColeta">
+
+                <button class="btn-main" onclick="agendarColeta()">Solicitar Coleta</button>
+            </div>
+        </div>
+
+        <!--página guia do município-->
+        <div id="guia" class="page hidden">
+            <h2>Guia de Procedimentos</h2>
+            <div class="card">
+                <h3>Como descartar corretamente?</h3>
+                <p><strong>Lixo orgânico:</strong> Restos de comida. Coleta: Seg. Qua. Sex.</p>
+                <p><strong>Recicláveis:</strong> Papel, plástico, vidro, metal limpos. Coleta: Ter. Qui.</p>
+                <p><strong>Óleo:</strong> Guarde em garrafa pet e leve no ecoponto.</p>
+                <p><strong>Eletrônicos e Móveis:</strong> Leve ao Ecoponto Central ou agende coleta de grandes objetos
+                    aqui no app.</p>
             </div>
         </div>
 

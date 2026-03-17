@@ -14,16 +14,20 @@ header {
 
 nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    flex-wrap: wrap;
     background: #1b5e20;
     padding: 10px;
     position: sticky;
     top: 0;
+    gap: 10px;
 }
 
 nav button {
     background: none;
-    border: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 5px 10px;
     color: white;
     cursor: pointer;
     font-weight: bold;
@@ -31,7 +35,8 @@ nav button {
 }
 
 nav button:hover {
-    opacity: 0.7;
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
 }
 
 .container {
@@ -49,11 +54,12 @@ nav button:hover {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 input,
-textarea {
+textarea,
+select {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -71,6 +77,26 @@ button.btn-main {
     border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
+    margin-top: 10px;
+}
+
+button.btn-secundario {
+    padding: 10px;
+    background: #1976d2;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.flex-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.flex-row input {
+    margin: 0;
+    flex: 1;
 }
 
 .btn-clear {
@@ -79,6 +105,9 @@ button.btn-main {
     background: none;
     cursor: pointer;
     margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    text-decoration: underline;
 }
 
 ul {
