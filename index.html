@@ -15,8 +15,12 @@
 <body>
 
     <!--headerzinho dos guri, é tipo uma barra que fica no topo do site com o nomezinho-->
+
     <header>
-        <h1 id="tituloSite">PROJETO S.D.R</h1>
+        <div class="header-content">
+            <h1 id="tituloSite">PROJETO S.D.R</h1>
+            <img src="img/Univille Logo.png" alt="Univille Logo" class="univille-logo">
+        </div>
     </header>
 
     <!--nave do guri, mas esse não é o mustangão ainda, é só os botõezinhos em cima-->
@@ -38,11 +42,31 @@
         <!--página de login-->
         <div id="login" class="page">
             <h2>Acesso do Cidadão</h2>
-            <p>Faça seu cadastro para acessar as funcionalidades do S.D.R.</p>
+            <p>Faça seu cadastro ou login para acessar as funcionalidades do S.D.R.</p>
             <div class="card">
                 <label>Seu Nome ou E-mail:</label>
                 <input type="text" id="nomeLogin" placeholder="Ex: Joao Silva">
-                <button class="btn-main" onclick="fazerLogin()">Entrar / Cadastrar</button>
+                <button class="btn-main" onclick="fazerLogin()" style="margin-top: 10px;">Entrar</button>
+                <button class="btn-main" onclick="showPage('cadastro')" style="margin-top: 10px;">Cadastrar</button>
+            </div>
+        </div>
+
+        <!--página de cadastro-->
+        <div id="cadastro" class="page hidden">
+            <h2>Novo Cadastro</h2>
+            <p>Preencha os dados abaixo para se registrar no S.D.R.</p>
+            <div class="card">
+                <label>Nome Completo:</label>
+                <input type="text" id="nomeCadastro" placeholder="Ex: Joao Silva">
+                
+                <label>E-mail:</label>
+                <input type="email" id="emailCadastro" placeholder="Ex: joao@email.com">
+                
+                <label>Telefone:</label>
+                <input type="text" id="telefoneCadastro" placeholder="Ex: (00) 00000-0000">
+                
+                <button class="btn-main" onclick="cadastrarUsuario()" style="margin-top: 10px;">Finalizar Cadastro</button>
+                <button class="btn-secundario" onclick="showPage('login')" style="margin-top: 10px;">Voltar</button>
             </div>
         </div>
 
@@ -84,11 +108,11 @@
                 <label>Descrição (máximo 250 caracteres):</label>
                 <textarea id="descDenuncia" maxlength="250"></textarea>
 
-                <label>Localização Automática:</label>
-                <div class="flex-row">
-                    <input type="text" id="gpsDenuncia" readonly>
-                    <button class="btn-secundario" onclick="obterLocalizacao()">Pegar Local</button>
-                </div>
+                <label>Endereço da ocorrência:</label>
+                <input type="text" id="ruaDenuncia" placeholder="Rua">
+                <input type="text" id="numeroDenuncia" placeholder="Número">
+                <input type="text" id="bairroDenuncia" placeholder="Bairro">
+                <input type="text" id="cidadeDenuncia" placeholder="Cidade">
 
                 <label>Foto da denúncia (opcional):</label>
                 <input type="file" id="fotoDenuncia">

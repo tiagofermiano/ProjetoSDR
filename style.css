@@ -1,56 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Inter', Arial, sans-serif;
     margin: 0;
-    background: #f4f4f9;
-    color: #333;
+    background: #dedede;
+    color: #222;
 }
 
+
 header {
-    background: #2e7d32;
+    background: #388e3c;
     color: white;
-    padding: 1rem;
+    padding: 0;
     text-align: center;
+    border-bottom: 8px solid #256029;
 }
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 18px 0 10px 0;
+}
+
+#tituloSite {
+    font-size: 1.6rem;
+    font-weight: bold;
+    margin: 0;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.univille-logo {
+    height: 48px;
+    background: white;
+    border-radius: 18px;
+    padding: 2px 18px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
 
 nav {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
-    background: #1b5e20;
-    padding: 10px;
-    position: sticky;
-    top: 0;
-    gap: 10px;
+    background: #256029;
+    padding: 0 0 0 0;
+    min-height: 38px;
+    gap: 28px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
+
 
 nav button {
     background: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    padding: 5px 10px;
-    color: white;
+    border: none;
+    border-radius: 0;
+    padding: 0 0 0 0;
+    color: #fff;
     cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.2px;
+    transition: color 0.2s;
+    height: 38px;
+    line-height: 38px;
+    margin: 0 8px;
+    box-shadow: none;
 }
 
+
 nav button:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: white;
+    color: #b2ff59;
+    background: none;
 }
 
 .container {
-    padding: 20px;
-    max-width: 600px;
-    margin: auto;
+    padding: 60px 0 0 0;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 70vh;
 }
 
 .card {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    background: #fff;
+    padding: 32px 28px 28px 28px;
+    border-radius: 28px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.13);
+    margin-bottom: 32px;
+    font-size: 1.08rem;
+    color: #222;
+    max-width: 700px;
+    width: 100%;
+    font-family: 'Inter', Arial, sans-serif;
+}
+h2, h1 {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+p, label, span, li, button, strong {
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+strong {
+    font-weight: 700;
+    color: #222;
 }
 
 .hidden {
